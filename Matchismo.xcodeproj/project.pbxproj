@@ -21,6 +21,11 @@
 		4804C50218651CDB00275F5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4804C4E418651CDB00275F5D /* UIKit.framework */; };
 		4804C50A18651CDB00275F5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4804C50818651CDB00275F5D /* InfoPlist.strings */; };
 		4804C50C18651CDB00275F5D /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C50B18651CDB00275F5D /* MatchismoTests.m */; };
+		4804C5171865372F00275F5D /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 4804C5161865372F00275F5D /* Card.m */; };
+		48979FE41866BE17002DC4CE /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 48979FE31866BE17002DC4CE /* PlayingCard.m */; };
+		48979FE71866C602002DC4CE /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 48979FE61866C602002DC4CE /* Deck.m */; };
+		48979FEA1866C8C4002DC4CE /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 48979FE91866C8C4002DC4CE /* PlayingCardDeck.m */; };
+		48FC43AE18682AF0005EBCFF /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC43AD18682AF0005EBCFF /* CardMatchingGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,16 @@
 		4804C50718651CDB00275F5D /* MatchismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchismoTests-Info.plist"; sourceTree = "<group>"; };
 		4804C50918651CDB00275F5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4804C50B18651CDB00275F5D /* MatchismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchismoTests.m; sourceTree = "<group>"; };
+		4804C5151865372F00275F5D /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
+		4804C5161865372F00275F5D /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
+		48979FE21866BE17002DC4CE /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
+		48979FE31866BE17002DC4CE /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
+		48979FE51866C602002DC4CE /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
+		48979FE61866C602002DC4CE /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
+		48979FE81866C8C4002DC4CE /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Model/PlayingCardDeck.h; sourceTree = "<group>"; };
+		48979FE91866C8C4002DC4CE /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
+		48FC43AC18682AF0005EBCFF /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
+		48FC43AD18682AF0005EBCFF /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +130,7 @@
 				4804C4EF18651CDB00275F5D /* CardGameAppDelegate.h */,
 				4804C4F018651CDB00275F5D /* CardGameAppDelegate.m */,
 				4804C4F218651CDB00275F5D /* Main.storyboard */,
+				4804C5181865375C00275F5D /* Model */,
 				4804C4F518651CDB00275F5D /* CardGameViewController.h */,
 				4804C4F618651CDB00275F5D /* CardGameViewController.m */,
 				4804C4F818651CDB00275F5D /* Images.xcassets */,
@@ -150,6 +166,23 @@
 				4804C50818651CDB00275F5D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4804C5181865375C00275F5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48FC43AC18682AF0005EBCFF /* CardMatchingGame.h */,
+				48FC43AD18682AF0005EBCFF /* CardMatchingGame.m */,
+				48979FE81866C8C4002DC4CE /* PlayingCardDeck.h */,
+				48979FE91866C8C4002DC4CE /* PlayingCardDeck.m */,
+				48979FE51866C602002DC4CE /* Deck.h */,
+				48979FE61866C602002DC4CE /* Deck.m */,
+				4804C5151865372F00275F5D /* Card.h */,
+				4804C5161865372F00275F5D /* Card.m */,
+				48979FE21866BE17002DC4CE /* PlayingCard.h */,
+				48979FE31866BE17002DC4CE /* PlayingCard.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +286,11 @@
 				4804C4F118651CDB00275F5D /* CardGameAppDelegate.m in Sources */,
 				4804C4F718651CDB00275F5D /* CardGameViewController.m in Sources */,
 				4804C4ED18651CDB00275F5D /* main.m in Sources */,
+				48979FE41866BE17002DC4CE /* PlayingCard.m in Sources */,
+				48FC43AE18682AF0005EBCFF /* CardMatchingGame.m in Sources */,
+				48979FEA1866C8C4002DC4CE /* PlayingCardDeck.m in Sources */,
+				48979FE71866C602002DC4CE /* Deck.m in Sources */,
+				4804C5171865372F00275F5D /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +499,7 @@
 				4804C51118651CDB00275F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4804C51218651CDB00275F5D /* Build configuration list for PBXNativeTarget "MatchismoTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +508,7 @@
 				4804C51418651CDB00275F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
