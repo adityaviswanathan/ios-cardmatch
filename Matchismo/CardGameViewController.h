@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Deck.h"
 
 @interface CardGameViewController : UIViewController
+
+//for subclasses
+- (Deck *)cardDeck; //abstract
 
 @end

@@ -8,8 +8,8 @@
 
 #import "CardGameViewController.h"
 #import "Deck.h"
-#import "PlayingCardDeck.h"
-#import "PlayingCard.h"
+//#import "PlayingCardDeck.h"
+//#import "PlayingCard.h"
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
@@ -44,13 +44,15 @@
     self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
 }
 
-- (Deck *)cardDeck
+- (Deck *)cardDeck //abstract
 {
-    if(!_cardDeck) {
-        _cardDeck = [[PlayingCardDeck alloc] init];
-    }
+//    if(!_cardDeck) {
+//        _cardDeck = [[PlayingCardDeck alloc] init];
+//    }
+//    
+//    return _cardDeck;
     
-    return _cardDeck;
+    return nil;
 }
 
 - (int)cardMode
