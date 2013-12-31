@@ -33,7 +33,7 @@
 - (CardMatchingGame *)game
 {
     if(!_game) {
-        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self cardDeck]];
+        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:self.cardDeck];
     }
     return _game;
 }
@@ -82,7 +82,6 @@
 
 - (IBAction)threeCardModeTrigger:(id)sender {
     if([self.threeCardModeButton isOn]) {
-        NSLog(@"balls");
         _cardMode = 2;
     } else if(![self.threeCardModeButton isOn]) {
         _cardMode = 1;

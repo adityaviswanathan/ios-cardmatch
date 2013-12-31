@@ -37,7 +37,7 @@
 
 - (instancetype)initWithCardCount:(NSUInteger)count
                         usingDeck:(Deck *)deck
-{
+{    
     self = [super init];
     
     if(self) {
@@ -100,6 +100,7 @@ static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 - (void)chooseCardAtIndex:(NSUInteger)index numMatch:(int)numMode
 {
+    NSLog(@"hi");
     Card *card = [self cardAtIndex:index];
     if(!card.isMatched) {
         if(card.isChosen) {
