@@ -13,10 +13,8 @@
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
-    NSLog(self.contents);
     
     for(Card *card in otherCards) {
-        NSLog(card.contents);
         PlayingCard *selectedCard = (PlayingCard *)card;
         if([self.suit isEqualToString:selectedCard.suit]) {
             score += 1;
@@ -37,10 +35,10 @@
     return score;
 }
 
-- (NSString *)contents
+- (NSAttributedString *)contents
 {
     NSArray *rankStrings = [PlayingCard rankStrings];
-    return [rankStrings[self.rank] stringByAppendingString:self.suit];
+    return [[NSAttributedString alloc] initWithString:[rankStrings[self.rank] stringByAppendingString:self.suit]];
     
 }
 

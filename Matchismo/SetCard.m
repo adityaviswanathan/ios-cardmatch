@@ -80,9 +80,10 @@
 - (NSAttributedString *)contents
 {
     NSMutableAttributedString *setCardDisplay = [[NSMutableAttributedString alloc] initWithString:self.shape attributes:[self generateAttributeDictionary]];
+    NSMutableAttributedString *unitType = [setCardDisplay copy];
     
-    for(int k = 0; k < self.quantity.intValue; k++) { //applying quantity property
-        [setCardDisplay appendAttributedString:setCardDisplay];
+    for(int k = 1; k < self.quantity.intValue; k++) { //applying quantity property
+        [setCardDisplay appendAttributedString:unitType];
     }
     
     return setCardDisplay;
