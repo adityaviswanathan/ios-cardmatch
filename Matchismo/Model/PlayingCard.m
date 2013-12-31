@@ -17,7 +17,7 @@
     
     for(Card *card in otherCards) {
         NSLog(card.contents);
-        PlayingCard *selectedCard = card;
+        PlayingCard *selectedCard = (PlayingCard *)card;
         if([self.suit isEqualToString:selectedCard.suit]) {
             score += 1;
         } else if(self.rank == selectedCard.rank){

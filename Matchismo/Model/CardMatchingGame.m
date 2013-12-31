@@ -8,6 +8,7 @@
 
 #import "CardMatchingGame.h"
 #import "PlayingCard.h"
+#import "SetCard.h"
 
 @interface CardMatchingGame()
 @property (nonatomic, readwrite) NSInteger score;
@@ -37,7 +38,7 @@
 
 - (instancetype)initWithCardCount:(NSUInteger)count
                         usingDeck:(Deck *)deck
-{    
+{
     self = [super init];
     
     if(self) {

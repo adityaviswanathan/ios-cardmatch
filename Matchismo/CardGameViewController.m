@@ -58,7 +58,7 @@
 - (int)cardMode
 {
     if(!_cardMode) {
-        _cardMode = 1;
+        _cardMode = 2;
     }
     return _cardMode;
 }

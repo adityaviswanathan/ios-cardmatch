@@ -13,13 +13,43 @@
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
+    int shapeMatch = 0;
+    int colorMatch = 0;
+    int shadingMatch = 0;
+    int quantityMatch = 0;
+    
+    for(Card *card in otherCards) {
+        SetCard *selectedCard = (SetCard *)card;
+        if([selectedCard.shape isEqual:self.shape]) {
+            shapeMatch++;
+        }
+        if([selectedCard.color isEqual:self.color]) {
+            colorMatch++;
+        }
+        if([selectedCard.shading isEqual:self.shading]) {
+            shadingMatch++;
+        }
+        if([selectedCard.quantity isEqual:self.quantity]) {
+            quantityMatch++;
+        }
+    }
+    
+    if(shapeMatch != 1 && colorMatch != 1 && shadingMatch != 1 && quantityMatch != 1) {
+        score = 10;
+    }
     
     return score;
 }
 
 - (NSString *)contents
 {
-    return @"";
+    NSMutableAttributedString *setCardDisplay = [[NSMutableAttributedString alloc] initWithString:self.shape attributes:@{ NSForegroundColorAttributeName : self.color }];
+    
+    for(int k = 0; k < (int)self.quantity; k++) {
+        [setCardDisplay appendAttributedString:setCardDisplay];
+    }
+    
+    return self.shape;
 }
 
 + (NSArray *)validShapes

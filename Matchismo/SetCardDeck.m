@@ -24,6 +24,7 @@
                         card.color = color;
                         card.shading = shading;
                         card.quantity = quantity;
+                        [self addCard:card];
                     }
                 }
             }
