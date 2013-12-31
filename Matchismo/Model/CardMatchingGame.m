@@ -68,33 +68,32 @@
 {
     NSLog(@"start");
     if(score > 0) {
-        NSString *statusBuild = @"You matched ";
+        NSMutableAttributedString *statusBuild = [[NSMutableAttributedString alloc] initWithString:@"You matched "];
         for(Card *selectedCard in cards) {
-            statusBuild = [statusBuild stringByAppendingString:selectedCard.contents];
-            statusBuild = [statusBuild stringByAppendingString:@" "];
+            [statusBuild appendAttributedString:selectedCard.contents];
+            [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         }
-        statusBuild = [statusBuild stringByAppendingString:@"for "];
-        statusBuild = [statusBuild stringByAppendingFormat:@"%d", score];
-        statusBuild = [statusBuild stringByAppendingString:@" points."];
+        [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@"for "]];
+        [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", score]]];
+        [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@" points."]];
         _status = statusBuild;
     } else if(score == 0){
-        NSString *statusBuild = @"";
+        NSMutableAttributedString *statusBuild = [[NSMutableAttributedString alloc] init];
         for(Card *selectedCard in cards) {
-            statusBuild = [statusBuild stringByAppendingString:selectedCard.contents];
-            statusBuild = [statusBuild stringByAppendingString:@" "];
+            [statusBuild appendAttributedString:selectedCard.contents];
+            [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         }
         _status = statusBuild;
     } else if(score < 0) {
-        NSString *statusBuild = @"";
+        NSMutableAttributedString *statusBuild = [[NSMutableAttributedString alloc] init];
         for(Card *selectedCard in cards) {
-            statusBuild = [statusBuild stringByAppendingString:selectedCard.contents];
-            statusBuild = [statusBuild stringByAppendingString:@" "];
+            [statusBuild appendAttributedString:selectedCard.contents];
+            [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         }
-        statusBuild = [statusBuild stringByAppendingString:@"don't match!"];
+        [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@"don't match!"]];
         _status = statusBuild;
     }
-    NSLog(@"THIS");
-    NSLog(self.status);
+    NSLog(self.status.string);
 }
 static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
@@ -119,6 +118,7 @@ static const int COST_TO_CHOOSE = 1;
                         int matchScore = [card match:cardsPicked];
                         [chosenCards addObject:card];
                         [self fillSelectedCards:chosenCards fillScore:(matchScore * MATCH_BONUS)];
+                        
                         if (matchScore) {
                             NSLog(@"found");
                             self.score += matchScore * MATCH_BONUS;

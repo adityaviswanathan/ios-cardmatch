@@ -395,11 +395,19 @@
                                     <action selector="touchCardButton:" destination="3Id-8X-HPJ" eventType="touchUpInside" id="bIm-nD-iik"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick your first card!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-7y-UfP">
+                                <rect key="frame" x="20" y="394" width="280" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Set" id="SWd-6B-lbp"/>
                     <connections>
+                        <outlet property="moveResults" destination="bRu-7y-UfP" id="ZBI-gI-Vyc"/>
                         <outletCollection property="cardButtons" destination="V05-wB-HLk" id="fVX-Gc-sGT"/>
                         <outletCollection property="cardButtons" destination="7nu-Pi-uyi" id="hm1-i2-Bw6"/>
                         <outletCollection property="cardButtons" destination="ScY-YH-jIg" id="FBP-Hi-ZnK"/>

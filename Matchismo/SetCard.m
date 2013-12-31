@@ -41,15 +41,51 @@
     return score;
 }
 
-- (NSString *)contents
+- (NSDictionary *)generateAttributeDictionary
 {
-    NSMutableAttributedString *setCardDisplay = [[NSMutableAttributedString alloc] initWithString:self.shape attributes:@{ NSForegroundColorAttributeName : self.color }];
+    NSNumber *strokeWidth = @0;
+    double alpha = 1;
+    UIColor *color = [[UIColor alloc] init];
+    UIColor *strokeColor = [[UIColor alloc] init];
     
-    for(int k = 0; k < (int)self.quantity; k++) {
+    if([self.color isEqual:@"green"]) {
+        color = [UIColor greenColor];
+    } else if([self.color isEqual:@"purple"]) {
+        color = [UIColor purpleColor];
+    } else if([self.color isEqual:@"red"]) {
+        color = [UIColor redColor];
+    }
+    
+    if([self.shading isEqual:@"Solid"]) {
+        strokeWidth = @5;
+        strokeColor = color;
+    } else if([self.shading isEqual:@"Striped"]) {
+        strokeWidth = @5;
+        strokeColor = color;
+        [color colorWithAlphaComponent:0.1];
+        alpha = 0.1;
+    } else if([self.shading isEqual:@"Open"]) {
+        strokeWidth = @-5;
+        strokeColor = color;
+        [color colorWithAlphaComponent:0.0];
+    }
+    
+    NSDictionary *attributeDictionary = @{ NSForegroundColorAttributeName : color,
+                                           NSStrokeWidthAttributeName : strokeWidth,
+                                           NSStrokeColorAttributeName : strokeColor };
+    
+    return attributeDictionary;
+}
+
+- (NSAttributedString *)contents
+{
+    NSMutableAttributedString *setCardDisplay = [[NSMutableAttributedString alloc] initWithString:self.shape attributes:[self generateAttributeDictionary]];
+    
+    for(int k = 0; k < self.quantity.intValue; k++) { //applying quantity property
         [setCardDisplay appendAttributedString:setCardDisplay];
     }
     
-    return self.shape;
+    return setCardDisplay;
 }
 
 + (NSArray *)validShapes
@@ -59,7 +95,7 @@
 
 + (NSArray *)validColors
 {
-    return @[[UIColor greenColor], [UIColor purpleColor], [UIColor redColor]];
+    return @[@"green", @"purple", @"red"];
 }
 
 + (NSArray *)validShadings

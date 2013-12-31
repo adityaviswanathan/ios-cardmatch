@@ -93,26 +93,26 @@
     for(UIButton *cardButton in self.cardButtons) {
         int cardIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardIndex];
-        [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+        [cardButton setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         if(card.isMatched) {
-            [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+            [cardButton setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
             [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
             cardButton.enabled = NO;
         }
-//        cardButton.enabled = !card.isMatched;
+        cardButton.enabled = !card.isMatched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    self.moveResults.text = self.game.status;
+    self.moveResults.attributedText = self.game.status;
 }
 
-- (NSString *)titleForCard:(Card *)card
+- (NSAttributedString *)titleForCard:(Card *)card
 {
     if(card.isChosen) {
         return card.contents;
     }
-    return @"";
+    return [[NSAttributedString alloc] initWithString:@""];
 }
 
 - (UIImage *)backgroundImageForCard:(Card *)card;

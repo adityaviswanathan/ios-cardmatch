@@ -20,6 +20,6 @@
 - (void)fillSelectedCards:(NSMutableArray *)cards fillScore:(int)score;
 
 @property (nonatomic, readonly) NSInteger score;
-@property (nonatomic, strong) NSString *status; //of Card
+@property (nonatomic, strong) NSAttributedString *status; //of Card
 
 @end
