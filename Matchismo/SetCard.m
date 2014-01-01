@@ -34,6 +34,29 @@
         }
     }
     
+    SetCard *firstComparison = otherCards[0];
+    SetCard *secondComparison = otherCards[1];
+    if(![self.shape isEqual:firstComparison.shape] && ![self.shape isEqual:secondComparison.shape]) {
+        if([firstComparison.shape isEqual:secondComparison.shape]) {
+            shapeMatch++;
+        }
+    }
+    if(![self.color isEqual:firstComparison.color] && ![self.color isEqual:secondComparison.color]) {
+        if([firstComparison.color isEqual:secondComparison.color]) {
+            colorMatch++;
+        }
+    }
+    if(![self.shading isEqual:firstComparison.shading] && ![self.shading isEqual:secondComparison.shading]) {
+        if([firstComparison.shading isEqual:secondComparison.shading]) {
+            shadingMatch++;
+        }
+    }
+    if(![self.quantity isEqual:firstComparison.quantity] && ![self.quantity isEqual:secondComparison.quantity]) {
+        if([firstComparison.quantity isEqual:secondComparison.quantity]) {
+            quantityMatch++;
+        }
+    }
+    
     if(shapeMatch != 1 && colorMatch != 1 && shadingMatch != 1 && quantityMatch != 1) {
         score = 10;
     }
