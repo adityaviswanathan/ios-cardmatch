@@ -94,7 +94,7 @@
         int cardIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardIndex];
         [cardButton setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
-        [cardButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [cardButton.titleLabel setFont:[UIFont systemFontOfSize:10]];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         if(card.isMatched) {
             [cardButton setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];

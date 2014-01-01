@@ -43,8 +43,7 @@
 
 - (NSDictionary *)generateAttributeDictionary
 {
-    NSNumber *strokeWidth = @0;
-    double alpha = 1;
+    NSNumber *strokeWidth = [[NSNumber alloc] init];
     UIColor *color = [[UIColor alloc] init];
     UIColor *strokeColor = [[UIColor alloc] init];
     
@@ -57,17 +56,16 @@
     }
     
     if([self.shading isEqual:@"Solid"]) {
-        strokeWidth = @5;
-        strokeColor = color;
-    } else if([self.shading isEqual:@"Striped"]) {
-        strokeWidth = @5;
-        strokeColor = color;
-        [color colorWithAlphaComponent:0.1];
-        alpha = 0.1;
-    } else if([self.shading isEqual:@"Open"]) {
         strokeWidth = @-5;
         strokeColor = color;
-        [color colorWithAlphaComponent:0.0];
+    } else if([self.shading isEqual:@"Striped"]) {
+        strokeWidth = @-5;
+        strokeColor = color;
+        color = [color colorWithAlphaComponent:0.3];
+    } else if([self.shading isEqual:@"Open"]) {
+        strokeWidth = @5;
+        strokeColor = color;
+        color = [color colorWithAlphaComponent:0.0];
     }
     
     NSDictionary *attributeDictionary = @{ NSForegroundColorAttributeName : color,
@@ -86,6 +84,8 @@
         [setCardDisplay appendAttributedString:unitType];
     }
     
+    NSLog([NSString stringWithFormat:@"shading: %@", self.shading]);
+    
     return setCardDisplay;
 }
 
@@ -101,7 +101,7 @@
 
 + (NSArray *)validShadings
 {
-    return @[@"Solid", @"Striped", @"Solid"];
+    return @[@"Solid", @"Striped", @"Open"];
 }
 
 const int MAX_CARD_NUM = 3;
