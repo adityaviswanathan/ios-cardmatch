@@ -19,10 +19,10 @@
 
 //@synthesize status = _status;
 
-- (NSString *)status
+- (NSAttributedString *)status
 {
     if(!_status) {
-        _status = [[NSString alloc] init];
+        _status = [[NSAttributedString alloc] init];
     }
     return _status;
 }

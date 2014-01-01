@@ -64,13 +64,14 @@
 }
 
 - (IBAction)touchRestart:(id)sender {
-    [self.game restartScore];    
+    [self.game restartScore];
     _game = nil;
     _cardDeck = nil;
     for(UIButton *cardButton in self.cardButtons) {
         cardButton.enabled = YES;
     }
     [self updateUI];
+    NSLog(@"balls");
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender
