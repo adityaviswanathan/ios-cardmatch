@@ -18,20 +18,14 @@
 
 - (void)viewDidLoad
 {
-    
-//    for(NSMutableAttributedString *move in self.moveHistory) {
-//        NSMutableAttributedString *previousString = [self.historyLabel.attributedText copy];
-//        [previousString appendAttributedString:(NSAttributedString *)move];
-//        self.historyLabel.attributedText = previousString;
-//    }
-    
     NSMutableAttributedString *combineString = [[NSMutableAttributedString alloc] init];
     
     for(NSMutableAttributedString *move in self.moveHistory) {
         [combineString appendAttributedString:(NSAttributedString *)move];
+        [combineString appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
     }
-    
     self.historyLabel.attributedText = combineString;
+    NSLog(combineString.string);
 }
 
 @end
