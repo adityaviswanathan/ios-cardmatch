@@ -436,7 +436,7 @@
                     <navigationItem key="navigationItem" title="Set Card Game" id="xlU-CO-s6Z">
                         <barButtonItem key="rightBarButtonItem" title="History" id="vhv-VW-ase">
                             <connections>
-                                <segue destination="0EN-t8-C6j" kind="push" id="Gyc-Te-nuK"/>
+                                <segue destination="0EN-t8-C6j" kind="push" identifier="Set Card History" id="Gyc-Te-nuK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -480,10 +480,11 @@
             </objects>
             <point key="canvasLocation" x="824" y="876"/>
         </scene>
-        <!--View Controller-->
+        <!--Game History View Controller - Move History-->
         <scene sceneID="kjC-pR-s9L">
             <objects>
-                <viewController id="0EN-t8-C6j" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6d-nF-KDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="0EN-t8-C6j" customClass="GameHistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kBo-QT-rXm"/>
                         <viewControllerLayoutGuide type="bottom" id="jwj-pQ-l5q"/>
@@ -491,11 +492,27 @@
                     <view key="view" contentMode="scaleToFill" id="ZKY-Gh-LkB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-sf-fxM">
+                                <rect key="frame" x="20" y="6" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLH-gO-JD3">
+                                <rect key="frame" x="20" y="82" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HNn-qg-46P"/>
+                    <navigationItem key="navigationItem" title="Move History" id="HNn-qg-46P"/>
+                    <connections>
+                        <outlet property="historyLabel" destination="ZLH-gO-JD3" id="Zug-X2-dEN"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r6d-nF-KDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1282" y="876"/>
         </scene>
@@ -970,10 +987,10 @@
             </objects>
             <point key="canvasLocation" x="824" y="166"/>
         </scene>
-        <!--Playing Card History View Controller-->
+        <!--Game History View Controller - Move History-->
         <scene sceneID="fdE-13-VZd">
             <objects>
-                <viewController id="KTN-nc-omX" customClass="PlayingCardHistoryViewController" sceneMemberID="viewController">
+                <viewController id="KTN-nc-omX" customClass="GameHistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wuw-rq-YkL"/>
                         <viewControllerLayoutGuide type="bottom" id="9Nf-HV-eOv"/>
@@ -981,9 +998,20 @@
                     <view key="view" contentMode="scaleToFill" id="jne-hV-Wyb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUa-mW-OMV">
+                                <rect key="frame" x="20" y="82" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yz0-ga-Gvx"/>
+                    <navigationItem key="navigationItem" title="Move History" id="yz0-ga-Gvx"/>
+                    <connections>
+                        <outlet property="historyLabel" destination="uUa-mW-OMV" id="3fl-Uj-mmR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGM-hq-p5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

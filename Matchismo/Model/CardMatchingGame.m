@@ -36,6 +36,15 @@
     return _cards;
 }
 
+- (NSMutableArray *)attempts
+{
+    if(!_attempts) {
+        _attempts = [[NSMutableArray alloc] init];
+    }
+    
+    return _attempts;
+}
+
 - (instancetype)initWithCardCount:(NSUInteger)count
                         usingDeck:(Deck *)deck
 {
@@ -76,6 +85,7 @@
         [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@"for "]];
         [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", score]]];
         [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@" points."]];
+        [self.attempts addObject:statusBuild];
         _status = statusBuild;
     } else if(score == 0){
         NSMutableAttributedString *statusBuild = [[NSMutableAttributedString alloc] init];
@@ -91,9 +101,10 @@
             [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         }
         [statusBuild appendAttributedString:[[NSAttributedString alloc] initWithString:@"don't match!"]];
+        [self.attempts addObject:statusBuild];
         _status = statusBuild;
     }
-    NSLog(self.status.string);
+    NSLog([NSString stringWithFormat:@"asdfasdf %d", [self.attempts count]]);
 }
 static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
@@ -117,8 +128,7 @@ static const int COST_TO_CHOOSE = 1;
                         NSArray *cardsPicked = [NSArray arrayWithArray:chosenCards];
                         int matchScore = [card match:cardsPicked];
                         [chosenCards addObject:card];
-                        [self fillSelectedCards:chosenCards fillScore:(matchScore * MATCH_BONUS)];
-                        
+                        [self fillSelectedCards:chosenCards fillScore:(matchScore * MATCH_BONUS)];                        
                         if (matchScore) {
                             NSLog(@"found");
                             self.score += matchScore * MATCH_BONUS;

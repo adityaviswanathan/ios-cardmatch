@@ -23,7 +23,7 @@
         }
         for(Card *allCard in otherCards) {
             if(![allCard isEqual:card]) {
-                PlayingCard *neighborCard = allCard;
+                PlayingCard *neighborCard = (PlayingCard *)allCard;
                 if([neighborCard.suit isEqualToString:selectedCard.suit]) {
                     score += 1;
                 } else if(neighborCard.rank == selectedCard.rank){

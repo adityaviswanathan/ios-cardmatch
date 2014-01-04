@@ -21,5 +21,6 @@
 
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic, strong) NSAttributedString *status; //of Card
+@property (nonatomic, strong) NSMutableArray *attempts;
 
 @end

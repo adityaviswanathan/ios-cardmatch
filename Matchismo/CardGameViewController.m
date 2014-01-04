@@ -11,6 +11,7 @@
 //#import "PlayingCardDeck.h"
 //#import "PlayingCard.h"
 #import "CardMatchingGame.h"
+#import "GameHistoryViewController.h"
 
 @interface CardGameViewController ()
 
@@ -29,6 +30,16 @@
 @end
 
 @implementation CardGameViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"Playing Card History"] || [segue.identifier isEqualToString:@"Set Card History"]) {
+        if([segue.destinationViewController isKindOfClass:[GameHistoryViewController class]]) {
+            GameHistoryViewController *ghvc = (GameHistoryViewController *)segue.destinationViewController;
+            ghvc.moveHistory = (NSArray *)self.game.attempts;
+        }
+    }
+}
 
 - (CardMatchingGame *)game
 {
@@ -81,7 +92,8 @@
     [self updateUI];
 }
 
-- (IBAction)threeCardModeTrigger:(id)sender {
+- (IBAction)threeCardModeTrigger:(id)sender
+{
     if([self.threeCardModeButton isOn]) {
         _cardMode = 2;
     } else if(![self.threeCardModeButton isOn]) {

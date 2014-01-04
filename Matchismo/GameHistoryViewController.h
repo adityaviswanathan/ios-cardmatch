@@ -1,5 +1,5 @@
 //
-//  PlayingCardHistoryViewController.h
+//  GameHistoryViewController.h
 //  Matchismo
 //
 //  Created by Aditya on 1/1/14.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayingCardHistoryViewController : UIViewController
+@interface GameHistoryViewController : UIViewController
+@property(strong, nonatomic) NSArray *moveHistory;
 
-@end
+@end;
